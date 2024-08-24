@@ -2,6 +2,8 @@
 
 Handles on join spawn locations, death revival and respawn locations.
 
+![Screenshot_31](https://github.com/user-attachments/assets/ea30bbad-306e-456c-9aa4-23fbd326500e)
+
 ## Usage
 
 To customize the commands, open the `config.lua` file within the project folder.
