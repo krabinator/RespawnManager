@@ -67,9 +67,9 @@ RegisterCommand('revive', function(Source, Args)
 
     if CurrentCount > Config.Durations.Revive then
         Revive()
-        DisplayChatMessage('Spawn System', 'You have been successfully revived!')
+        DisplayChatMessage('Respawn Manager', 'You have been successfully revived!')
     else
-        DisplayChatMessage('Spawn System', 'You have ' .. Config.Durations.Revive - CurrentCount .. ' seconds remaining!')
+        DisplayChatMessage('Respawn Manager', 'You have ' .. Config.Durations.Revive - CurrentCount .. ' seconds remaining!')
     end
 end, false)
 
@@ -78,9 +78,9 @@ RegisterCommand('respawn', function(Source, Args)
 
     if CurrentCount > Config.Durations.Respawn then
         Revive(GetClosestHospital())
-        DisplayChatMessage('Spawn System', 'You have been successfully respawned!')
+        DisplayChatMessage('Respawn Manager', 'You have been successfully respawned!')
     else
-        DisplayChatMessage('Spawn System', 'You have ' .. Config.Durations.Respawn - CurrentCount .. ' seconds remaining!')
+        DisplayChatMessage('Respawn Manager', 'You have ' .. Config.Durations.Respawn - CurrentCount .. ' seconds remaining!')
     end
 end, false)
 
@@ -92,20 +92,21 @@ Citizen.CreateThread(function()
 
             if not DeathMessageSent then
                 DeathMessageSent = true
-                DisplayChatMessage('Spawn System', 'You have died. Respawn in ' .. Config.Durations.Respawn .. ' seconds or revive in ' .. Config.Durations.Revive .. ' seconds.')
+                DisplayChatMessage('Respawn Manager', 'You have died. Respawn in ' .. Config.Durations.Respawn .. ' seconds or revive in ' .. Config.Durations.Revive .. ' seconds.')
             end
 
             if not ReviveMessageSent and CurrentCount > Config.Durations.Revive then
                 ReviveMessageSent = true
-                DisplayChatMessage('Spawn System', 'You are now able to revive. Type /revive to revive yourself.')
+                DisplayChatMessage('Respawn Manager', 'You are now able to revive. Type /revive to revive yourself.')
             end
 
             if not RespawnMessageSent and CurrentCount > Config.Durations.Respawn then
                 RespawnMessageSent = true
-                DisplayChatMessage('Spawn System', 'You are now able to respawn. Type /respawn to respawn yourself.')
+                DisplayChatMessage('Respawn Manager', 'You are now able to respawn. Type /respawn to respawn yourself.')
             end
         else
             IsDead = false
+            DeathMessageSent = false
             ReviveMessageSent = false
             RespawnMessageSent = false
             CurrentCount = 0
