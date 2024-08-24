@@ -14,6 +14,6 @@ To customize the commands, open the `config.lua` file within the project folder.
 
 - **Durations:** Number values are in seconds.
 
-- **Spawns:** Change or remove predefined spawn locations. (coordinates)
+- **Spawns:** Modify predefined spawn locations. (coordinates)
 
-- **Hospitals:** Change or remove predefined spawn locations. (coordinates)
+- **Hospitals:** Modify predefined spawn locations. (coordinates)
